@@ -26,8 +26,12 @@ ActiveRecord::Schema.define(version: 20141215220857) do
     t.string   "country"
     t.string   "region"
     t.text     "description"
-    t.string   "sku"
+    t.integer  "bm_score"
     t.text     "image"
+    t.string   "snooth_rating"
+    t.integer  "my_score"
+    t.integer  "value_score"
+    t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

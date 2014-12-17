@@ -10,8 +10,12 @@ class CreateWines < ActiveRecord::Migration
       t.string :country
       t.string :region
       t.text :description
-      t.string :sku
+      t.integer :bm_score
       t.text :image
+      t.string :snooth_rating
+      t.integer :my_score
+      t.integer :value_score
+      t.string :color
 
       t.timestamps
     end

@@ -29,7 +29,7 @@ gem 'nokogiri'
 gem 'mechanize'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'jquery-rails'
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -39,3 +39,6 @@ gem 'mechanize'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'httparty'
+gem 'json'
+gem 'oj'

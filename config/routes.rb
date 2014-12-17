@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
-root 'welcome#index'
+root 'wines#index'
 
-resources :varietals do
-  resources :wines
-end
+resources :wines
+
+get 'snooth', to: 'wines#snooth'
+get 'score', to: 'wines#score'
+get 'value', to: 'wines#value'
+get 'slot', to: 'wines#slot'
+
 
 end

@@ -5,17 +5,30 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="src/jquery.slotmachine.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Bitter:400,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width">
+
 </head>
 <body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <ul>
+      <li><a href="/"><h3>Home</h3></a></li>
+    </ul>
+  </div>
+</nav>
 
 <div class="container">
   <%= yield %>
 </div>
+
+<%= yield :footer %>
 
 </body>
 </html>
