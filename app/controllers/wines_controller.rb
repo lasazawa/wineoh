@@ -72,8 +72,13 @@ class WinesController < ApplicationController
     @wine = Wine.find(params[:id])
 
     @varietal = @wine.varietal
-    @varietal_rec = Wine.where(:varietal => @varietal)
 
+    @allVarietals = Wine.where(varietal: @varietal)
+    @allVarietalsWithScore = @allVarietals.where.not('my_score' => nil)
+    @varietal_rec = @allVarietalsWithScore.order("my_score DESC").limit(5)
+
+    # Deal.find(:all, :order => 'quantity_purchased * price', :limit => 100);
+    # Deal.order('quantity_purchased * price').limit(100)
   end
 
   def slot

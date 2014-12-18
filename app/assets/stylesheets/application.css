@@ -206,7 +206,36 @@ h4.rec_header {
   font-weight: 400;
   margin: 0 3px;
 }
+.show_header {
+  margin-top: 20px;
+}
 
+.wine_img_show_container {
+  height: 330px;
+  background-color: white;
+  padding: 15px;
+}
+
+.wine_img_show {
+  height: 300px;
+}
+
+.show_info {
+  margin-left: 140px;
+  margin-top: 20px
+}
+
+.main_wine_show {
+  background-color: white;
+  border-radius: 4px;
+  border-bottom: solid 1px rgba(0,0,0,0.12);
+
+
+}
+
+.r_col {
+  border-left: solid 1px rgba(0,0,0,0.1);
+}
 
 /*  NAV   */
 .navbar-inverse {
@@ -218,7 +247,22 @@ h4.rec_header {
   border-bottom: solid 1px rgba(140,0,56,1);
 }
 
+.logo {
+  font-family: 'Lato', sans-serif;
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgba(255,255,255,0.5);
+}
+.logo:hover {
+  text-decoration: none;
+  color: rgba(255,255,255,0.8);
+}
 
+a.logo:hover {
+  text-decoration: none;
+  color: rgba(255,255,255,0.8);
+}
 
 /*  -------------  bg colors  -------------  */
 
