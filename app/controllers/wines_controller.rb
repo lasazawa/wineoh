@@ -10,9 +10,48 @@ class WinesController < ApplicationController
     highestScore = Wine.maximum("my_score")
     @highestWine = Wine.where(my_score: highestScore).first
 
-    # @reds = Wine.where(varietal: list of red wines is malbec.....)
+    highestValue = Wine.maximum("value_score")
+    @valueWine = Wine.where(value_score: highestValue).first
+
+  end
+
+  def reds
+    @reds = Wine.where(color: "red")
+
+    highest = @reds.maximum("my_score")
+    @highestRed = @reds.where(my_score: highest).first
+
+    highestValue = @reds.maximum("value_score")
+    @valueRed = @reds.where(value_score: highestValue).first
+
+  end
 
 
+  def whites
+    @whites = Wine.where(color: "white")
+
+    highest = @whites.maximum("my_score")
+    @highestWhite = @whites.where(my_score: highest).first
+
+    highestValue = @whites.maximum("value_score")
+    @valueWhite = @whites.where(value_score: highestValue).first
+  end
+
+
+  def roses
+    @roses = Wine.where(color: "rose")
+
+    highest = @roses.maximum("my_score")
+    @highestRose = @roses.where(my_score: highest).first
+
+    highestValue = @roses.maximum("value_score")
+    @valueRose = @roses.where(value_score: highestValue).first
+  end
+
+  def filter
+    wineColor = params[:wineColor]
+    wines = Wine.where(color: wineColor)
+    render json: wines
   end
 
 
@@ -37,6 +76,7 @@ class WinesController < ApplicationController
     @wines.each do |wine|
 
       puts wine.company
+
       uri = URI.escape("http://api.snooth.com/wines/?akey=8xo0yzmftoede3eczasvyrkedfs9hothrmaw1w69hohrtl12&q=#{wine.company} #{wine.vintage} #{wine.varietal}")
 
       response = HTTParty.get uri
@@ -66,16 +106,17 @@ class WinesController < ApplicationController
   def score
     @wines = Wine.all
     @wines.each do |wine|
+
       if wine.snooth_rating != nil
         puts wine.snooth_rating.to_f
         convertSnooth = ((wine.snooth_rating.to_f * 14) + 40)
         puts convertSnooth
-        # now we have converted snooth if it exists
+        # if snooth score is found, convert it
         # now, if bm score exists, add them together otherwise, double snooth
         if wine.bm_score != nil
-          wine.my_score = convertSnooth + wine.bm_score
           puts "ADD SNOOTH CONVERT + BM SCORE"
           puts convertSnooth + wine.bm_score
+          wine.my_score = convertSnooth + wine.bm_score
         else
           puts "NO BM SCORE SO DOUBLE THE SNOOTH SCORE"
           puts convertSnooth * 2
@@ -84,6 +125,33 @@ class WinesController < ApplicationController
       else
         puts "THERE ARE NO SCORES AVAILABLE FROM SNOOTH OR FROM BEVMO"
       end
+
+      if wine.price_sale != ""
+        lowerPrice = wine.price_sale
+        lowerPrice[0] = ""
+        puts lowerPrice.to_f
+        if wine.my_score != nil
+          puts "whats this"
+          value = wine.my_score.to_f / lowerPrice.to_f
+          puts "VALUE"
+          puts value
+          wine.value_score = value
+          puts wine.value_score.to_f
+        end
+      else
+        lowerPrice = wine.price
+        lowerPrice[0] = ""
+        puts lowerPrice.to_f
+        if wine.my_score != nil
+          puts "whats this2"
+          value = wine.my_score.to_f / lowerPrice.to_f
+          puts "VALUE"
+          puts value
+          wine.value_score = value
+          puts wine.value_score.to_f
+        end
+      end
+
       wine.save
     end
   end

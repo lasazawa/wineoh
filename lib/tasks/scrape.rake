@@ -33,7 +33,7 @@ namespace :scrape do
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Rhone/_/N-13Z1z141fx",
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Riesling/_/N-13Z1z141sr",
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Rioja/_/N-13Z1z140u6",
-    # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Rose-Blush/_/N-13Z1z141rb",
+    "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Rose-Blush/_/N-13Z1z141rb",
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Sauvignon-Blanc/_/N-13Z1z141vt",
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Syrah-Shiraz/_/N-13Z1z141pg",
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Tempranillo/_/N-13Z1z141ik",
@@ -121,6 +121,12 @@ namespace :scrape do
         # check sixth row
         if page.search('.uxTableProductInfo tr:nth-child(6) td:first-child').inner_html == "Region\u00a0:"
           wine.region = page.search('.uxTableProductInfo tr:nth-child(6) td a').text.strip
+        end
+
+        # set Rose/Blush to Rose so its discoverable in Snooth
+        if wine.varietal == "Rose/Blush"
+          wine.varietal = "Rose"
+          puts "TRUE ROSE/BLUSH"
         end
 
         # images

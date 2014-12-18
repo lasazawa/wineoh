@@ -1,0 +1,91 @@
+<div class="bleed filter">
+  <div class="container">
+    <div class="row filters">
+      <div class="col-md-12">
+        <h1 class="inline-block">Gimme
+          <a href="/reds" class="btn-lg btn btn-default wine_color red ">Reds</a>
+          <a href="/whites" class="btn-lg btn btn-default wine_color white">Whites</a>
+          <a href="/roses"class="btn-lg btn btn-default wine_color rose wine_color_selected">Roses</a>
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bleed recommendations">
+  <div class="container">
+    <div class="row"> <!-- recommended wines -->
+
+    <!-- high score -->
+      <div class="wine_tile col-md-4 col-sm-4 col-xs-12">
+      <h4 class="rec_header">high score</h4>
+        <% if @highestRose.image != nil %>
+          <img class="wine_img left" src="http://www.bevmo.com<%= @highestRose.image %>"  alt="bottle">
+        <% end %>
+        <h3><a href="/wines/<%= @highestRose.id %>"> <%= @highestRose.title %> </a> </h3>
+        <h4> <%= @highestRose.price %>
+          <% if @highestRose.price_sale != "" %>
+            <div>
+              <!-- <span class="pipe"> | </span> -->
+              <br>
+              <span class="sale-price"> SALE <%= @highestRose.price_sale %></span>
+            </div>
+          <% else %>
+            <%= @highestRose.price_sale %>
+          <% end %>
+        </h4>
+        <p class="dark">
+        <span class="test"><%= @highestRose.my_score %>, <%= @highestRose.value_score %></span>
+        <br>
+        <%= @highestRose.company %>, <%= @highestRose.vintage %>
+        <br>
+        <%= @highestRose.varietal %> — <%= @highestRose.region %>, <%= @highestRose.country %></p>
+
+      </div>
+
+
+      <div class="wine_tile col-md-4 col-sm-4 col-xs-12">
+      <h4 class="rec_header">Bang for your buck</h4>
+        <% if @valueRose.image != nil %>
+          <img class="wine_img left" src="http://www.bevmo.com<%= @valueRose.image %>"  alt="bottle">
+        <% end %>
+        <h3><a href="/wines/<%= @valueRose.id %>"> <%= @valueRose.title %> </a> </h3>
+        <h4> <%= @valueRose.price %>
+          <% if @valueRose.price_sale != "" %>
+            <div>
+              <!-- <span class="pipe"> | </span> -->
+              <br>
+              <span class="sale-price"> SALE <%= @valueRose.price_sale %></span>
+            </div>
+          <% else %>
+            <%= @valueRose.price_sale %>
+          <% end %>
+        </h4>
+        <p class="dark">
+        <span class="test"><%= @valueRose.my_score %>, <%= @valueRose.value_score %></span>
+        <br>
+        <%= @valueRose.company %>, <%= @valueRose.vintage %>
+        <br>
+        <%= @valueRose.varietal %> — <%= @valueRose.region %>, <%= @valueRose.country %></p>
+      </div>
+    </div>
+  </div>
+</div><!--  end bleed -->
+
+
+<div class="container">
+  <div class="row"> <!-- all wines -->
+
+      <!-- FOR EACH ALL-->
+      <div id="wine_tile_container">
+      <h4 class="rec_header center">All Zee Roses</h4>
+      <!-- how to do i make response in to @wines? -->
+        <% @roses.each do |wine| %>
+          <%= render "winetile", :wine => wine %>
+        <% end %>
+      </div>
+    </div> <!-- close col-md-9 -->
+
+</div>
+
+</div>

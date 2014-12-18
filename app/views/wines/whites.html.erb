@@ -1,0 +1,101 @@
+<div class="bleed filter">
+  <div class="container">
+    <div class="row filters">
+      <div class="col-md-12">
+        <h1 class="inline-block">Gimme
+          <a href="/reds" class="btn-lg btn btn-default wine_color red ">Reds</a>
+          <a href="/whites" class="wine_color_selected btn-lg btn btn-default wine_color white">Whites</a>
+          <a href="/roses"class="btn-lg btn btn-default wine_color rose">Roses</a>
+        </h1>
+        <div class="btn-group right">
+          <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          Select Varietal <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Torrontes</a></li>
+            <li><a href="#">Viognier</a></li>
+            <li><a href="#">Chardonnay</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bleed recommendations">
+  <div class="container">
+    <div class="row"> <!-- recommended wines -->
+
+    <!-- high score -->
+      <div class="wine_tile col-md-4 col-sm-4 col-xs-12">
+      <h4 class="rec_header">high score</h4>
+        <% if @highestWhite.image != nil %>
+          <img class="wine_img left" src="http://www.bevmo.com<%= @highestWhite.image %>"  alt="bottle">
+        <% end %>
+        <h3><a href="/wines/<%= @highestWhite.id %>"> <%= @highestWhite.title %> </a> </h3>
+        <h4> <%= @highestWhite.price %>
+          <% if @highestWhite.price_sale != "" %>
+            <div>
+              <!-- <span class="pipe"> | </span> -->
+              <br>
+              <span class="sale-price"> SALE <%= @highestWhite.price_sale %></span>
+            </div>
+          <% else %>
+            <%= @highestWhite.price_sale %>
+          <% end %>
+        </h4>
+        <p class="dark">
+        <span class="test"><%= @highestWhite.my_score %>, <%= @highestWhite.value_score %></span>
+        <br>
+        <%= @highestWhite.company %>, <%= @highestWhite.vintage %>
+        <br>
+        <%= @highestWhite.varietal %> — <%= @highestWhite.region %>, <%= @highestWhite.country %></p>
+
+      </div>
+
+
+      <div class="wine_tile col-md-4 col-sm-4 col-xs-12">
+      <h4 class="rec_header">Bang for your buck</h4>
+        <% if @valueWhite.image != nil %>
+          <img class="wine_img left" src="http://www.bevmo.com<%= @valueWhite.image %>"  alt="bottle">
+        <% end %>
+        <h3><a href="/wines/<%= @valueWhite.id %>"> <%= @valueWhite.title %> </a> </h3>
+        <h4> <%= @valueWhite.price %>
+          <% if @valueWhite.price_sale != "" %>
+            <div>
+              <!-- <span class="pipe"> | </span> -->
+              <br>
+              <span class="sale-price"> SALE <%= @valueWhite.price_sale %></span>
+            </div>
+          <% else %>
+            <%= @valueWhite.price_sale %>
+          <% end %>
+        </h4>
+        <p class="dark">
+        <span class="test"><%= @valueWhite.my_score %>, <%= @valueWhite.value_score %></span>
+        <br>
+        <%= @valueWhite.company %>, <%= @valueWhite.vintage %>
+        <br>
+        <%= @valueWhite.varietal %> — <%= @valueWhite.region %>, <%= @valueWhite.country %></p>
+      </div>
+    </div>
+  </div>
+</div><!--  end bleed -->
+
+
+<div class="container">
+  <div class="row"> <!-- all wines -->
+
+      <!-- FOR EACH ALL-->
+      <div id="wine_tile_container">
+      <h4 class="rec_header center">All Zee Whites</h4>
+      <!-- how to do i make response in to @wines? -->
+        <% @whites.each do |wine| %>
+          <%= render "winetile", :wine => wine %>
+        <% end %>
+      </div>
+    </div> <!-- close col-md-9 -->
+
+</div>
+
+</div>

@@ -1,3 +1,9 @@
+.test {
+  font-size: 11px;
+  color:rgba(0,0,0,0.3);
+  font-weight: bold;
+}
+
 body {
   font-family: 'Lato', sans-serif;
   background-color: rgba(236,232,227,0.5);
@@ -5,6 +11,7 @@ body {
 
 h1 {
   font-family: 'Bitter', serif;
+  color: white;
 
 }
 
@@ -41,8 +48,24 @@ a:hover {
   color: rgba(183,0,73,1);
 }
 
+.dropdown-toggle {
+  margin-top: 20px;
+}
+.filters {
+  margin-bottom: 15px;
+}
+.inline-block {
+  display: inline-block;
+}
 .left {
   float: left;
+}
+.right {
+  float: right;
+}
+
+.center {
+  text-align: center;
 }
 
 .dark {
@@ -52,7 +75,38 @@ a:hover {
 .navbar-inverse {
   border-radius: 0px;
 }
+.navbar-inverse ul {
+  list-style-type: none;
+}
 
+.navbar-inverse ul li a{
+  color: white;
+}
+
+/* ---------    ---------*/
+
+.btn-default {
+  background-color: rgba(140,0,56,.5);
+  border:solid 1px rgba(140,0,56,1);
+  color: white;
+}
+
+.btn-default:hover {
+  background-color: rgba(140,0,56,.8);
+  border:solid 1px rgba(140,0,56,1);
+  color: white;
+}
+
+.wine_color_selected {
+  background-color: rgba(120,0,45,0.8);
+  color:white;
+  border:solid 1px rgba(120,0,45,1);
+}
+.wine_color_selected:hover {
+  background-color: rgba(120,0,45,1);
+  color:white;
+  border:solid 1px rgba(120,0,45,1);
+}
 
 /* ---------    ---------*/
 
@@ -60,6 +114,7 @@ a:hover {
 .wine_tile {
   margin: 5px 0;
   padding: 15px;
+  min-height: 200px;
   background-color: rgba(255,255,255,0.75);
   border-radius: 4px;
   border-bottom: solid 1px rgba(0,0,0,0.1);
@@ -68,7 +123,7 @@ a:hover {
 .wine_tile:hover {
   background-color: white;
   cursor: pointer;
-  border-bottom: solid 1px rgba(0,0,0,0.15);
+  border-bottom: solid 1px rgba(0,0,0,0.2);
 }
 
 .wine_tile_rec {
@@ -94,11 +149,8 @@ a:hover {
 
 h4.rec_header {
   margin-bottom: 15px;
-}
-
-.wine_color_selected {
-  background-color: blue;
-  color:yellow;
+  color: #ed005f;
+  font-size: 18px;
 }
 
 .sale-price {
@@ -118,51 +170,41 @@ h4.rec_header {
   border-left:none;
   border-right:none;
   border-top:none;
-  border-bottom: solid 1px rgba(120,0,45,1);
+  margin-bottom: 0;
+  border-bottom: solid 1px rgba(140,0,56,1);
 }
 
 
 
-/*  -------------  SLOT  -------------  */
+/*  -------------  bg colors  -------------  */
 
-.slotMachine .slot{
-  height:100px;
-  background-position-x: 55%;
-  background-repeat: no-repeat;
+.footer {
+  height: 100px;
 }
-.slot1{
-  background-image: url("slot1.png");
-}
-.slot2{
-  background-image: url("./images/slot2.png");
-}
-.slot3{
-  background-image: url("./images/slot3.png");
-}
-.slot4{
-  background-image: url("./images/slot4.png");
-}
-.slot5{
-  background-image: url("./images/slot5.png");
-}
-.slot6{
-  background-image: url("./images/slot6.png");
+.recommendations {
+  background-color: rgba(240,222,217,0.5);
+  padding: 20px 0;
+  margin: 0 0 20px;
 }
 
+.filter {
+  padding-top: 5px;
+  background-color: rgba(183,0,73,1);
+}
 /*  -------------  SLOT  -------------  */
 
 
 /*   END NAV   */
 @media screen and (min-width: 992px) {
-  .col-md-6 {
-    width: 48%;
+  .col-md-4 {
+    width: 32%;
     margin: 5px;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
-  .col-sm-6{
-    width: 48%;
+  .col-sm-4{
+    width: 32%;
     margin: 5px;
   }
 }

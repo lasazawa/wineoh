@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20141215220857) do
     t.text     "image"
     t.string   "snooth_rating"
     t.integer  "my_score"
-    t.integer  "value_score"
+    t.decimal  "value_score"
     t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"

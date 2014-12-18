@@ -14,7 +14,7 @@ class CreateWines < ActiveRecord::Migration
       t.text :image
       t.string :snooth_rating
       t.integer :my_score
-      t.integer :value_score
+      t.decimal :value_score
       t.string :color
 
       t.timestamps

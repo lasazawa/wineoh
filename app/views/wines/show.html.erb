@@ -1,44 +1,45 @@
-<div class="row">
-  <div class="col-md-8">
-    <img class="left" src="http://www.bevmo.com<%= @wine.image %>" alt="<%= @wine.title %>">
-    <div class="left">
-      <h1><%= @wine.title %></h1>
-      <h4 class="price_lg"><%= @wine.price %>
-        <% if @wine.price_sale != "" %>
-          <span class="pipe"> | </span>
-          <span class="sale-price"> SALE <%= @wine.price_sale %></span>
-        <% else %>
-          <%= @wine.price_sale %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <img class="left" src="http://www.bevmo.com<%= @wine.image %>" alt="<%= @wine.title %>">
+      <div class="left">
+        <h1 class="dark"><%= @wine.title %></h1>
+        <h4 class="price_lg"><%= @wine.price %>
+          <% if @wine.price_sale != "" %>
+            <span class="pipe"> | </span>
+            <span class="sale-price"> SALE <%= @wine.price_sale %></span>
+          <% else %>
+            <%= @wine.price_sale %>
+          <% end %>
+        </h4>
+        <p class="dark"><%= @wine.company %>, <%= @wine.vintage %>
+          <br>
+          <%= @wine.varietal %> — <%= @wine.region %>, <%= @wine.country %>
+        </p>
+        <p><%= @wine.description %></p>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <!-- same varietal recommendations -->
+      <% if @varietal_rec.length > 1 %>
+        <h4 class="rec_header">More <%= @wine.varietal %>'s</h4>
+      <% end %>
+      <% @varietal_rec.each do |wine| %>
+        <% if wine.id != @wine.id %>
+          <div class="wine_tile_rec">
+            <img class="wine_img_rec left" src="http://www.bevmo.com<%= wine.image %>"  alt="bottle">
+              <h3><a href="/wines/<%= wine.id %>"><%= wine.title %></a></h3>
+              <h4> <%= wine.price %>
+                <% if wine.price_sale != "" %>
+                    <span class="pipe"> | </span> <span class="sale-price">SALE <%= wine.price_sale %></span>
+                <% else %>
+                  <%= wine.price_sale %>
+                <% end %>
+              </h4>
+          </div>
         <% end %>
-      </h4>
-      <p class="dark"><%= @wine.company %>, <%= @wine.vintage %>
-        <br>
-        <%= @wine.varietal %> — <%= @wine.region %>, <%= @wine.country %>
-      </p>
-      <p><%= @wine.description %></p>
+      <% end %>
     </div>
   </div>
-
-  <div class="col-md-4 col-sm-6 col-xs-12">
-    <!-- same varietal recommendations -->
-    <% if @varietal_rec.length > 1 %>
-      <h4 class="rec_header">More <%= @wine.varietal %>'s</h4>
-    <% end %>
-    <% @varietal_rec.each do |wine| %>
-      <% if wine.id != @wine.id %>
-        <div class="wine_tile_rec">
-          <img class="wine_img_rec left" src="http://www.bevmo.com<%= wine.image %>"  alt="bottle">
-            <h3><a href="/wines/<%= wine.id %>"><%= wine.title %></a></h3>
-            <h4> <%= wine.price %>
-              <% if wine.price_sale != "" %>
-                  <span class="pipe"> | </span> <span class="sale-price">SALE <%= wine.price_sale %></span>
-              <% else %>
-                <%= wine.price_sale %>
-              <% end %>
-            </h4>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
 </div>
-

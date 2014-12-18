@@ -1,0 +1,23 @@
+
+<div id="wine_tile" class="wine_tile col-md-4 col-sm-4 col-xs-12 left">
+  <% if wine.image != nil %>
+    <img class="wine_img left" src="http://www.bevmo.com<%= wine.image %>"  alt="bottle">
+  <% end %>
+  <h3><a href="/wines/<%= wine.id %>"> <%= wine.title %> </a> </h3>
+  <h4> <%= wine.price %>
+    <% if wine.price_sale != "" %>
+      <div>
+        <!-- <span class="pipe"> | </span> -->
+        <br>
+        <span class="sale-price"> SALE <%= wine.price_sale %></span>
+      </div>
+    <% else %>
+      <%= wine.price_sale %>
+    <% end %>
+  </h4>
+  <p class="dark">
+  <%= wine.company %>, <%= wine.vintage %>
+  <br>
+  <%= wine.varietal %> — <%= wine.region %>, <%= wine.country %>
+  </p>
+</div>
