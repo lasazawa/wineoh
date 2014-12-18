@@ -38,7 +38,7 @@ gem 'jquery-rails'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+gem 'masonry-rails'
 gem 'httparty'
 gem 'json'
 gem 'oj'

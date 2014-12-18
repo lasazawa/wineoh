@@ -1,3 +1,18 @@
+
+
+
+
+#masonry-container {
+  margin-bottom: 20px;
+  clear: both;
+}
+
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+
+
 .test {
   font-size: 11px;
   color:rgba(0,0,0,0.3);
@@ -111,6 +126,30 @@ a:hover {
 /* ---------    ---------*/
 
 
+.wine_tile_sm {
+  margin: 5px 0;
+  padding: 15px;
+  min-height: 180px;
+  background-color: rgba(255,255,255,0.75);
+  border-radius: 4px;
+  border-bottom: solid 1px rgba(0,0,0,0.1);
+}
+
+.wine_tile_sm:hover {
+  background-color: white;
+  cursor: pointer;
+  border-bottom: solid 1px rgba(0,0,0,0.2);
+}
+
+.wine_tile_show {
+  margin: 5px 0;
+  padding: 15px;
+  min-height: 140px;
+  background-color: rgba(255,255,255,0.75);
+  border-radius: 4px;
+  border-bottom: solid 1px rgba(0,0,0,0.1);
+}
+
 .wine_tile {
   margin: 5px 0;
   padding: 15px;
@@ -139,6 +178,11 @@ a:hover {
 
 .wine_img {
   height: 160px;
+  margin: 0 20px 0 10px;
+}
+
+.wine_img_sm {
+  height: 100px;
   margin: 0 20px 0 10px;
 }
 
@@ -182,7 +226,7 @@ h4.rec_header {
   height: 100px;
 }
 .recommendations {
-  background-color: rgba(240,222,217,0.5);
+  background-color: rgba(183,0,73,0.1);
   padding: 20px 0;
   margin: 0 0 20px;
 }
@@ -198,6 +242,10 @@ h4.rec_header {
 @media screen and (min-width: 992px) {
   .col-md-4 {
     width: 32%;
+    margin: 5px;
+  }
+  .col-md-3 {
+    width: 24%;
     margin: 5px;
   }
 }

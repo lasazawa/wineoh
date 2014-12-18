@@ -1,7 +1,7 @@
 
-<div id="wine_tile" class="wine_tile col-md-4 col-sm-4 col-xs-12 left">
+<div id="masonry-container wine_tile" class="wine_tile_sm col-md-3 col-sm-3 col-xs-12 left ">
   <% if wine.image != nil %>
-    <img class="wine_img left" src="http://www.bevmo.com<%= wine.image %>"  alt="bottle">
+    <img class="wine_img_sm left" src="http://www.bevmo.com<%= wine.image %>"  alt="bottle">
   <% end %>
   <h3><a href="/wines/<%= wine.id %>"> <%= wine.title %> </a> </h3>
   <h4> <%= wine.price %>

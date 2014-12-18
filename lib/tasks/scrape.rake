@@ -9,8 +9,8 @@ namespace :scrape do
 
   wine_links = [
   #   "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Albarino/_/N-13Z1z13uxb",
-    "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Barbaresco/_/N-13Z1z141c7",
-    "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Barbera/_/N-13Z1z14138",
+    # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Barbaresco/_/N-13Z1z141c7",
+    # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Barbera/_/N-13Z1z14138",
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Barolo/_/N-13Z1z141c5"
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Bordeaux/_/N-13Z1z141hm",
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Brunello-di-Montalcino/_/N-13Z1z141eh",
@@ -26,19 +26,19 @@ namespace :scrape do
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Moscato/_/N-13Z1z138pr",
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Muscat/_/N-13Z1z141o8",
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Nero-d-Avola/_/N-13Z1z13t1d",
-    # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Petite-Sirah/_/N-13Z1z140wm",
+    "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Petite-Sirah/_/N-13Z1z140wm",
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Pinot-Blanc/_/N-13Z1z13g5o",
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Pinot-Grigio-Pinot-Gris/_/N-13Z1z141tu",
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Pinot-Noir/_/N-13Z1z141w8",
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Rhone/_/N-13Z1z141fx",
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Riesling/_/N-13Z1z141sr",
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Rioja/_/N-13Z1z140u6",
-    "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Rose-Blush/_/N-13Z1z141rb",
+    # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Rose-Blush/_/N-13Z1z141rb",
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Sauvignon-Blanc/_/N-13Z1z141vt",
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Syrah-Shiraz/_/N-13Z1z141pg",
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Tempranillo/_/N-13Z1z141ik",
-    "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Torrontes/_/N-13Z1z13sfn",
-    "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Viognier/_/N-13Z1z141ir",
+    # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Torrontes/_/N-13Z1z13sfn",
+    # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Viognier/_/N-13Z1z141ir",
     # "http://www.bevmo.com/Shop/ProductList.aspx/Wine/Zinfandel/_/N-13Z1z141pp"
   ]
 

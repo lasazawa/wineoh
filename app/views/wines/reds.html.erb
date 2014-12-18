@@ -78,6 +78,34 @@
         <br>
         <%= @valueRed.varietal %> — <%= @valueRed.region %>, <%= @valueRed.country %></p>
       </div>
+
+
+      <div class="wine_tile col-md-4 col-sm-4 col-xs-12">
+      <h4 class="rec_header">unique</h4>
+        <% if @uniqueRed.image != nil %>
+          <img class="wine_img left" src="http://www.bevmo.com<%= @uniqueRed.image %>"  alt="bottle">
+        <% end %>
+        <h3><a href="/wines/<%= @uniqueRed.id %>"> <%= @uniqueRed.title %> </a> </h3>
+        <h4> <%= @uniqueRed.price %>
+          <% if @uniqueRed.price_sale != "" %>
+            <div>
+              <!-- <span class="pipe"> | </span> -->
+              <br>
+              <span class="sale-price"> SALE <%= @uniqueRed.price_sale %></span>
+            </div>
+          <% else %>
+            <%= @uniqueRed.price_sale %>
+          <% end %>
+        </h4>
+        <p class="dark">
+        <span class="test"><%= @uniqueRed.my_score %>, <%= @uniqueRed.value_score %></span>
+        <br>
+        <%= @uniqueRed.company %>, <%= @uniqueRed.vintage %>
+        <br>
+        <%= @uniqueRed.varietal %> — <%= @uniqueRed.region %>, <%= @uniqueRed.country %></p>
+      </div>
+
+
     </div>
   </div>
 </div><!--  end bleed -->

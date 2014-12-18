@@ -13,6 +13,9 @@ class WinesController < ApplicationController
     highestValue = Wine.maximum("value_score")
     @valueWine = Wine.where(value_score: highestValue).first
 
+    @uniques = @wines.where(varietal: "Petite Sirah")
+    highScore = @uniques.maximum("my_score")
+    @theUnique = @uniques.where(my_score: highScore).first
   end
 
   def reds
@@ -23,6 +26,11 @@ class WinesController < ApplicationController
 
     highestValue = @reds.maximum("value_score")
     @valueRed = @reds.where(value_score: highestValue).first
+
+    @uniqueR = @reds.where(varietal: "Brunello di Montalcino")
+    highScore = @uniqueR.maximum("my_score")
+    @uniqueRed = @uniqueR.where(my_score: highScore).first
+
 
   end
 
@@ -35,6 +43,10 @@ class WinesController < ApplicationController
 
     highestValue = @whites.maximum("value_score")
     @valueWhite = @whites.where(value_score: highestValue).first
+
+    @uniqueW = @whites.where(varietal: "Torrontes")
+    highScore = @uniqueW.maximum("my_score")
+    @uniqueWhite = @uniqueW.where(my_score: highScore).first
   end
 
 

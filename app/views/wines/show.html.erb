@@ -27,7 +27,7 @@
       <% end %>
       <% @varietal_rec.each do |wine| %>
         <% if wine.id != @wine.id %>
-          <div class="wine_tile_rec">
+          <div class="wine_tile_show">
             <img class="wine_img_rec left" src="http://www.bevmo.com<%= wine.image %>"  alt="bottle">
               <h3><a href="/wines/<%= wine.id %>"><%= wine.title %></a></h3>
               <h4> <%= wine.price %>
