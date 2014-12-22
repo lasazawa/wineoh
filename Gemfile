@@ -30,6 +30,8 @@ gem 'mechanize'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
+gem 'gon'
+gem 'figaro'
 # Use unicorn as the app server
 # gem 'unicorn'
 
