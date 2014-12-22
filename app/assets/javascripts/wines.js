@@ -1,3 +1,5 @@
+
+
 $(document).ready(function(){
 
 var container = document.querySelector('#container');
@@ -8,13 +10,13 @@ var msnry = new Masonry( container, {
 });
 
 $(function(){
-
   $('#masonry-container').masonry({
-    itemSelector: '.box',
-    columnWidth: 100,
-    isAnimated: !Modernizr.csstransitions,
-    isRTL: true
+    // options
+    itemSelector : '.item',
+    columnWidth : 50,
+    isAnimated: true
   });
+});
 
 });
 //   $('button.wine_color').click(function() {

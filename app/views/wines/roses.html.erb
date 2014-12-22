@@ -17,7 +17,7 @@
     <div class="row"> <!-- recommended wines -->
 
     <!-- high score -->
-      <div class="wine_tile col-md-4 col-sm-4 col-xs-12">
+      <div class="wine_tile_3 wine_tile col-md-4 col-sm-4 col-xs-12">
       <h4 class="rec_header">high score</h4>
         <% if @highestRose.image != nil %>
           <img class="wine_img left" src="http://www.bevmo.com<%= @highestRose.image %>"  alt="bottle">
@@ -35,8 +35,7 @@
           <% end %>
         </h4>
         <p class="dark">
-        <span class="test"><%= @highestRose.my_score %>, <%= @highestRose.value_score %></span>
-        <br>
+
         <%= @highestRose.company %>, <%= @highestRose.vintage %>
         <br>
         <%= @highestRose.varietal %> — <%= @highestRose.region %>, <%= @highestRose.country %></p>
@@ -44,7 +43,7 @@
       </div>
 
 
-      <div class="wine_tile col-md-4 col-sm-4 col-xs-12">
+      <div class="wine_tile_3 wine_tile col-md-4 col-sm-4 col-xs-12">
       <h4 class="rec_header">Bang for your buck</h4>
         <% if @valueRose.image != nil %>
           <img class="wine_img left" src="http://www.bevmo.com<%= @valueRose.image %>"  alt="bottle">
@@ -62,8 +61,7 @@
           <% end %>
         </h4>
         <p class="dark">
-        <span class="test"><%= @valueRose.my_score %>, <%= @valueRose.value_score %></span>
-        <br>
+
         <%= @valueRose.company %>, <%= @valueRose.vintage %>
         <br>
         <%= @valueRose.varietal %> — <%= @valueRose.region %>, <%= @valueRose.country %></p>

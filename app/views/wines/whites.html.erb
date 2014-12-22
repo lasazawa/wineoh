@@ -12,9 +12,9 @@
           Select Varietal <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Torrontes</a></li>
-            <li><a href="#">Viognier</a></li>
-            <li><a href="#">Chardonnay</a></li>
+            <% @whiteVarietals.each do |wv| %>
+              <li><a href="#"><%= wv %></a></li>
+            <% end %>
           </ul>
         </div>
       </div>
@@ -27,7 +27,7 @@
     <div class="row"> <!-- recommended wines -->
 
     <!-- high score -->
-      <div class="wine_tile col-md-4 col-sm-4 col-xs-12">
+      <div class="wine_tile_3 wine_tile col-md-4 col-sm-4 col-xs-12">
       <h4 class="rec_header">high score</h4>
         <% if @highestWhite.image != nil %>
           <img class="wine_img left" src="http://www.bevmo.com<%= @highestWhite.image %>"  alt="bottle">
@@ -45,8 +45,7 @@
           <% end %>
         </h4>
         <p class="dark">
-        <span class="test"><%= @highestWhite.my_score %>, <%= @highestWhite.value_score %></span>
-        <br>
+
         <%= @highestWhite.company %>, <%= @highestWhite.vintage %>
         <br>
         <%= @highestWhite.varietal %> — <%= @highestWhite.region %>, <%= @highestWhite.country %></p>
@@ -54,7 +53,7 @@
       </div>
 
 
-      <div class="wine_tile col-md-4 col-sm-4 col-xs-12">
+      <div class="wine_tile_3 wine_tile col-md-4 col-sm-4 col-xs-12">
       <h4 class="rec_header">Bang for your buck</h4>
         <% if @valueWhite.image != nil %>
           <img class="wine_img left" src="http://www.bevmo.com<%= @valueWhite.image %>"  alt="bottle">
@@ -72,15 +71,14 @@
           <% end %>
         </h4>
         <p class="dark">
-        <span class="test"><%= @valueWhite.my_score %>, <%= @valueWhite.value_score %></span>
-        <br>
+
         <%= @valueWhite.company %>, <%= @valueWhite.vintage %>
         <br>
         <%= @valueWhite.varietal %> — <%= @valueWhite.region %>, <%= @valueWhite.country %></p>
       </div>
 
 
-      <div class="wine_tile col-md-4 col-sm-4 col-xs-12">
+      <div class="wine_tile_3 wine_tile col-md-4 col-sm-4 col-xs-12">
       <h4 class="rec_header">unique</h4>
         <% if @uniqueWhite.image != nil %>
           <img class="wine_img left" src="http://www.bevmo.com<%= @uniqueWhite.image %>"  alt="bottle">
@@ -98,8 +96,7 @@
           <% end %>
         </h4>
         <p class="dark">
-        <span class="test"><%= @uniqueWhite.my_score %>, <%= @uniqueWhite.value_score %></span>
-        <br>
+
         <%= @uniqueWhite.company %>, <%= @uniqueWhite.vintage %>
         <br>
         <%= @uniqueWhite.varietal %> — <%= @uniqueWhite.region %>, <%= @uniqueWhite.country %></p>

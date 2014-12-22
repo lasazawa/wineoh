@@ -5,7 +5,10 @@ class WinesController < ApplicationController
   require 'oj'
 
   def index
-    @wines = Wine.all
+    @allWines = Wine.all
+
+    @winesWithScore = @allWines.where.not('my_score' => nil)
+    @wines = @winesWithScore.order("my_score DESC")
 
     highestScore = Wine.maximum("my_score")
     @highestWine = Wine.where(my_score: highestScore).first
@@ -16,6 +19,9 @@ class WinesController < ApplicationController
     @uniques = @wines.where(varietal: "Petite Sirah")
     highScore = @uniques.maximum("my_score")
     @theUnique = @uniques.where(my_score: highScore).first
+
+    @allVarietals = @allWines.uniq.pluck(:varietal)
+
   end
 
   def reds
@@ -31,7 +37,7 @@ class WinesController < ApplicationController
     highScore = @uniqueR.maximum("my_score")
     @uniqueRed = @uniqueR.where(my_score: highScore).first
 
-
+    @redVarietals = @reds.uniq.pluck(:varietal)
   end
 
 
@@ -47,6 +53,8 @@ class WinesController < ApplicationController
     @uniqueW = @whites.where(varietal: "Torrontes")
     highScore = @uniqueW.maximum("my_score")
     @uniqueWhite = @uniqueW.where(my_score: highScore).first
+
+    @whiteVarietals = @whites.uniq.pluck(:varietal)
   end
 
 
@@ -170,36 +178,6 @@ class WinesController < ApplicationController
       end
 
       wine.save
-    end
-  end
-
-  def value
-        @highestValue = nil
-    @wines = Wine.all
-    @wines.each do |w|
-      if w.my_score != nil
-        if w.price_sale != nil
-          lowerPrice = w.price_sale
-        else
-          lowerPrice = w.price
-        #   wPrice = w.price_sale
-        # else
-        #   wPrice = w.price
-        # end
-        # # remove "$" from wPrice and turn in to float
-        # wPrice[0] = ""
-        # thePrice = wPrice.to_f
-        # puts thePrice
-
-        # value = w.my_score / thePrice
-        # puts value
-
-        # if value > @highestValue
-        #   @highestValue = value
-        # end
-        end
-        puts lowerPrice
-      end
     end
   end
 

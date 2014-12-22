@@ -12,9 +12,9 @@
           Select Varietal <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Cabernet Sauvignon</a></li>
-            <li><a href="#">Merlot</a></li>
-            <li><a href="#">Malbec</a></li>
+            <% @redVarietals.each do |rv| %>
+              <li><a href="#"><%= rv %></a></li>
+            <% end %>
           </ul>
         </div>
       </div>
@@ -22,12 +22,13 @@
   </div>
 </div>
 
+
 <div class="bleed recommendations">
   <div class="container">
     <div class="row"> <!-- recommended wines -->
 
     <!-- high score -->
-      <div class="wine_tile col-md-4 col-sm-4 col-xs-12">
+      <div class="wine_tile_3 wine_tile col-md-4 col-sm-4 col-xs-12">
       <h4 class="rec_header">high score</h4>
         <% if @highestRed.image != nil %>
           <img class="wine_img left" src="http://www.bevmo.com<%= @highestRed.image %>"  alt="bottle">
@@ -45,8 +46,7 @@
           <% end %>
         </h4>
         <p class="dark">
-        <span class="test"><%= @highestRed.my_score %>, <%= @highestRed.value_score %></span>
-        <br>
+
         <%= @highestRed.company %>, <%= @highestRed.vintage %>
         <br>
         <%= @highestRed.varietal %> — <%= @highestRed.region %>, <%= @highestRed.country %></p>
@@ -54,7 +54,7 @@
       </div>
 
 
-      <div class="wine_tile col-md-4 col-sm-4 col-xs-12">
+      <div class="wine_tile_3 wine_tile col-md-4 col-sm-4 col-xs-12">
       <h4 class="rec_header">Bang for your buck</h4>
         <% if @valueRed.image != nil %>
           <img class="wine_img left" src="http://www.bevmo.com<%= @valueRed.image %>"  alt="bottle">
@@ -72,15 +72,14 @@
           <% end %>
         </h4>
         <p class="dark">
-        <span class="test"><%= @valueRed.my_score %>, <%= @valueRed.value_score %></span>
-        <br>
+
         <%= @valueRed.company %>, <%= @valueRed.vintage %>
         <br>
         <%= @valueRed.varietal %> — <%= @valueRed.region %>, <%= @valueRed.country %></p>
       </div>
 
 
-      <div class="wine_tile col-md-4 col-sm-4 col-xs-12">
+      <div class="wine_tile_3 wine_tile col-md-4 col-sm-4 col-xs-12">
       <h4 class="rec_header">unique</h4>
         <% if @uniqueRed.image != nil %>
           <img class="wine_img left" src="http://www.bevmo.com<%= @uniqueRed.image %>"  alt="bottle">
@@ -98,8 +97,7 @@
           <% end %>
         </h4>
         <p class="dark">
-        <span class="test"><%= @uniqueRed.my_score %>, <%= @uniqueRed.value_score %></span>
-        <br>
+
         <%= @uniqueRed.company %>, <%= @uniqueRed.vintage %>
         <br>
         <%= @uniqueRed.varietal %> — <%= @uniqueRed.region %>, <%= @uniqueRed.country %></p>

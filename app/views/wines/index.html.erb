@@ -1,3 +1,4 @@
+
 <div class="bleed filter">
   <div class="container">
     <div class="row filters">
@@ -12,11 +13,9 @@
           Select Varietal <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <% @allVarietals.each do |av| %>
+              <li><a href="#"><%= av %></a></li>
+            <% end %>
           </ul>
         </div>
       </div>
@@ -29,7 +28,7 @@
     <div class="row"> <!-- recommended wines -->
 
     <!-- high score -->
-      <div class="wine_tile col-md-4 col-sm-4 col-xs-12">
+      <div class="wine_tile wine_tile_3 col-md-4 col-sm-4 col-xs-12">
       <h4 class="rec_header">high score</h4>
         <% if @highestWine.image != nil %>
           <img class="wine_img left" src="http://www.bevmo.com<%= @highestWine.image %>"  alt="bottle">
@@ -47,16 +46,15 @@
           <% end %>
         </h4>
         <p class="dark">
-        <span class="test"><%= @highestWine.my_score %>, <%= @highestWine.value_score %></span>
-        <br>
+
         <%= @highestWine.company %>, <%= @highestWine.vintage %>
         <br>
         <%= @highestWine.varietal %> — <%= @highestWine.region %>, <%= @highestWine.country %></p>
 
       </div>
 
-
-      <div class="wine_tile col-md-4 col-sm-4 col-xs-12">
+    <!-- value wine -->
+      <div class="wine_tile wine_tile_3 col-md-4 col-sm-4 col-xs-12">
       <h4 class="rec_header">Bang for your buck</h4>
         <% if @valueWine.image != nil %>
           <img class="wine_img left" src="http://www.bevmo.com<%= @valueWine.image %>"  alt="bottle">
@@ -74,15 +72,14 @@
           <% end %>
         </h4>
         <p class="dark">
-        <span class="test"><%= @valueWine.my_score %>, <%= @valueWine.value_score %></span>
-        <br>
+
         <%= @valueWine.company %>, <%= @valueWine.vintage %>
         <br>
         <%= @valueWine.varietal %> — <%= @valueWine.region %>, <%= @valueWine.country %></p>
       </div>
 
-
-      <div class="wine_tile col-md-4 col-sm-4 col-xs-12">
+      <!-- unique wine -->
+      <div class="wine_tile wine_tile_3 col-md-4 col-sm-4 col-xs-12">
       <h4 class="rec_header">unique</h4>
         <% if @theUnique.image != nil %>
           <img class="wine_img left" src="http://www.bevmo.com<%= @theUnique.image %>"  alt="bottle">
@@ -100,8 +97,7 @@
           <% end %>
         </h4>
         <p class="dark">
-        <span class="test"><%= @theUnique.my_score %>, <%= @theUnique.value_score %></span>
-        <br>
+
         <%= @theUnique.company %>, <%= @theUnique.vintage %>
         <br>
         <%= @theUnique.varietal %> — <%= @theUnique.region %>, <%= @theUnique.country %></p>
@@ -117,7 +113,7 @@
   <div class="row"> <!-- all wines -->
 
       <!-- FOR EACH ALL-->
-      <div id="wine_tile_container">
+      <div id="wine_tile_container masonry-container content" class="transitions-enabled infinite-scroll clearfix masonry">
       <h4 class="rec_header center">All Zee Wines</h4>
       <!-- how to do i make response in to @wines? -->
         <% @wines.each do |wine| %>
